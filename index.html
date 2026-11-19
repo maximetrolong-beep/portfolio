@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maxime Trolong · Graphisme, 3D et web</title>
+  <meta name="description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Maxime Trolong · Graphisme, 3D et web">
+  <meta property="og:description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0C0E16">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400..700&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=20261119-calme2">
+  <script src="js/theme.js?v=20261119-calme"></script>
+  <script src="js/main.js?v=20261119-calme" defer></script>
+</head>
+<body data-page="accueil">
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="os-haut">
+    <a class="os-profil" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span class="os-avatar" aria-hidden="true">MT</span><span class="os-nom">Maxime Trolong</span></a>
+    <div class="os-etat">
+      <span class="os-dispo">Disponible pout un stage</span>
+      <span class="os-heure" id="os-heure" aria-hidden="true"></span>
+      <span class="os-reseau" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#reseau"/></svg></span>
+      <span class="os-batterie" id="os-batterie" aria-hidden="true" hidden><span></span></span>
+    </div>
+  </header>
+
+  <main id="contenu" tabindex="-1">
+    <section class="ac-hero">
+      <h1 class="ac-nom"><span class="ac-nom-bleu">Maxime</span> <span class="ac-nom-rouge">Trolong</span></h1>
+      <img class="ac-photo" src="assets/moi.webp?v=2" alt="Portrait de Maxime, le visage éclairé en bleu d'un côté et en rouge de l'autre" width="1000" height="1270" decoding="async" fetchpriority="high">
+      <p class="ac-cote ac-cote--bleu"><span class="ac-cote-titre">Le code</span>Sites web, intégration, JavaScript</p>
+      <p class="ac-cote ac-cote--rouge"><span class="ac-cote-titre">L'image</span>Affiches, 3D, mise en page</p>
+      <div class="ac-hero-bas">
+        <p class="ac-phrase">Moi c'est Maxime. Je fais des affiches, de la 3D et des sites web. 2e année de BUT MMI, IUT de Tarbes.</p>
+        <p class="os-stage"><span class="os-point" aria-hidden="true"></span>Je cherche un stage de TODO durée à partir de TODO date.</p>
+        <a class="ac-descendre" href="#projets">
+          <span>Voir mes projets</span>
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#bas"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="ac-section" id="projets" aria-labelledby="ac-titre-projets">
+      <div class="ac-section-tete">
+        <h2 class="os-section-titre" id="ac-titre-projets">Quelques projets</h2>
+        <a class="os-bouton" href="projets.html">Tous les projets</a>
+      </div>
+      <ul class="ac-grille">
+        <li>
+          <a class="ac-carte" href="projets/cycleup-pyrenees.html">
+            <span class="vis vis-couv-zone vis--jaquette couv-2">
+              <span class="vis-couv" aria-hidden="true">Cycle'Up Pyrénées</span>
+              <img src="assets/projets/cycleup-pyrenees/jaquette.jpg" alt="Accueil du site Cycle'Up Pyrénées sur mobile, avec le logo vert et la rosalie" width="1200" height="1800" decoding="async">
+            </span>
+            <span class="ac-carte-texte">
+              <span class="ac-carte-titre">Cycle'Up Pyrénées</span>
+              <span class="ac-carte-meta">Web</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="ac-carte" href="projets/affiche-1.html">
+            <span class="vis vis-couv-zone vis--jaquette couv-1">
+              <span class="vis-couv" aria-hidden="true">Carte de vœux Cité de l'espace</span>
+              <img src="assets/projets/affiche-1/jaquette.jpg" alt="Carte de vœux 2026 : un module lunaire bleu posé sur l'eau, des planètes orange et bleue, le logo de la Cité de l'espace" width="1200" height="1800" decoding="async">
+            </span>
+            <span class="ac-carte-texte">
+              <span class="ac-carte-titre">Carte de vœux Cité de l'espace</span>
+              <span class="ac-carte-meta">Affiches · 2026</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="ac-carte" href="projets/affiche-2.html">
+            <span class="vis vis-couv-zone vis--jaquette couv-2">
+              <span class="vis-couv" aria-hidden="true">Venez débattre</span>
+              <img src="assets/projets/affiche-2/jaquette.jpg" alt="Affiche « Venez débattre » : titre blanc énorme, foule en violet, deux personnages qui débattent derrière des pupitres" width="1200" height="1800" loading="lazy" decoding="async">
+            </span>
+            <span class="ac-carte-texte">
+              <span class="ac-carte-titre">Venez débattre</span>
+              <span class="ac-carte-meta">Affiches · 2025</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="ac-carte" href="projets/affiche-3.html">
+            <span class="vis vis-couv-zone vis--jaquette couv-0">
+              <span class="vis-couv" aria-hidden="true">Fidélité à une œuvre</span>
+              <img src="assets/projets/affiche-3/jaquette.jpg" alt="Page de gauche : titre Fidélité à une œuvre originale sur un fond de vieux papier, texte qui contourne un balai" width="1200" height="1800" loading="lazy" decoding="async">
+            </span>
+            <span class="ac-carte-texte">
+              <span class="ac-carte-titre">Fidélité à une œuvre</span>
+              <span class="ac-carte-meta">Affiches</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="ac-section" id="sur-moi" aria-labelledby="ac-titre-moi">
+      <div class="ac-moi os-verre">
+        <div class="ac-moi-texte">
+          <h2 class="os-section-titre" id="ac-titre-moi">Sur moi</h2>
+          <p class="ac-moi-intro">Je suis Maxime, en 2e année de BUT MMI à l'IUT de Tarbes, parcours Développement de dispositifs interactifs.</p>
+          <p>Je code depuis le lycée et je modélise dans Blender. En cours, j'ai appris la mise en page et l'affiche. Ce que je préfère, c'est quand les deux se croisent : un site qui doit être beau, une affiche qui sort d'une scène 3D. Et le jeu vidéo, c'est surtout son univers graphique qui me passionne.</p>
+          <div class="os-actions">
+            <a class="os-bouton os-bouton--plein" href="contact.html">Me contacter</a>
+            <a class="os-bouton" href="assets/cv.pdf" target="_blank" rel="noopener">Voir mon CV</a>
+            <a class="os-bouton" href="a-propos.html">En savoir plus</a>
+          </div>
+        </div>
+        <div class="ac-moi-infos">
+          <div>
+            <h3 class="ac-mini-titre">Mes outils</h3>
+            <dl class="ac-liste">
+              <div><dt>3D</dt><dd>Blender</dd></div>
+              <div><dt>Web</dt><dd>HTML, CSS, JavaScript, PHP, MySQL</dd></div>
+              <div><dt>Graphisme</dt><dd>Photoshop, InDesign, dessin sur tablette</dd></div>
+              <div><dt>Langues</dt><dd>Français, anglais</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h3 class="ac-mini-titre">Parcours</h3>
+            <dl class="ac-liste">
+              <div><dt>2025 – 2027</dt><dd>BUT MMI, IUT de Tarbes</dd></div>
+              <div><dt>2024 – 2025</dt><dd>BUT GEII</dd></div>
+              <div><dt>2024</dt><dd>Bac général NSI et sciences de l'ingénieur, Bastia</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="os-pied">
+    <div class="osp-int">
+      <div class="osp-haut">
+        <div class="osp-moi">
+          <a class="osp-nom" href="index.html">Maxime Trolong</a>
+          <p>Graphisme, 3D et web. 2e année de BUT MMI, IUT de Tarbes.</p>
+          <p class="osp-dispo"><span class="os-point" aria-hidden="true"></span>Disponible pour un stage</p>
+        </div>
+        <nav class="osp-col" aria-label="Pied de page">
+          <h2 class="osp-titre">Pages</h2>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="osp-col">
+          <h2 class="osp-titre">Me joindre</h2>
+          <ul>
+            <li><a href="mailto:TODO-ton-email@exemple.fr">TODO-ton-email@exemple.fr</a></li>
+            <li><a href="assets/cv.pdf" target="_blank" rel="noopener">Mon CV en PDF</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="osp-bas">
+        <p>© 2026 Maxime Trolong</p>
+        <a class="osp-haut-lien" href="#">Revenir en haut</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="os-dock" aria-label="Navigation principale">
+    <a class="os-dock-btn" href="index.html" aria-current="page"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#accueil"/></svg></span><span class="os-dock-nom">Accueil</span></a>
+    <a class="os-dock-btn" href="projets.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#tout"/></svg></span><span class="os-dock-nom">Projets</span></a>
+    <a class="os-dock-btn" href="a-propos.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#apropos"/></svg></span><span class="os-dock-nom">À propos</span></a>
+    <a class="os-dock-btn" href="contact.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#contact"/></svg></span><span class="os-dock-nom">Contact</span></a>
+    <a class="os-dock-btn" href="assets/cv.pdf" target="_blank" rel="noopener"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#cv"/></svg></span><span class="os-dock-nom">Mon CV</span></a>
+    <span class="os-dock-sep" aria-hidden="true"></span>
+    <button class="os-dock-btn" type="button" id="os-theme" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#soleil"/></svg></span><span class="os-dock-nom">Version claire</span></button>
+    <button class="os-dock-btn" type="button" id="os-son" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#muet"/></svg></span><span class="os-dock-nom">Sons coupés</span></button>
+  </nav>
+</body>
+</html>

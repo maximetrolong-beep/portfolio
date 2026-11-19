@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes projets · Maxime Trolong</title>
+  <meta name="description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Mes projets · Maxime Trolong">
+  <meta property="og:description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0C0E16">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400..700&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=20261119-calme2">
+  <script src="../js/theme.js?v=20261119-calme"></script>
+  <script src="js/main.js?v=20261119-calme" defer></script>
+</head>
+<body data-page="projets">
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="os-haut">
+    <a class="os-profil" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span class="os-avatar" aria-hidden="true">MT</span><span class="os-nom">Maxime Trolong</span></a>
+    <div class="os-onglets" role="group" aria-label="Filtrer par catégorie">
+      <button class="onglet" type="button" data-cat="" aria-pressed="true"><span class="onglet-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#tout"/></svg></span><span class="onglet-nom">Tout</span></button>
+      <button class="onglet" type="button" data-cat="3d" aria-pressed="false"><span class="onglet-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#3d"/></svg></span><span class="onglet-nom">3D</span></button>
+      <button class="onglet" type="button" data-cat="affiches" aria-pressed="false"><span class="onglet-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#affiches"/></svg></span><span class="onglet-nom">Affiches</span></button>
+      <button class="onglet" type="button" data-cat="web" aria-pressed="false"><span class="onglet-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#web"/></svg></span><span class="onglet-nom">Web</span></button>
+    </div>
+    <div class="os-etat">
+      <span class="os-dispo">Dispo stage</span>
+      <span class="os-heure" id="os-heure" aria-hidden="true"></span>
+      <span class="os-reseau" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#reseau"/></svg></span>
+      <span class="os-batterie" id="os-batterie" aria-hidden="true" hidden><span></span></span>
+    </div>
+  </header>
+
+  <main id="contenu" tabindex="-1">
+    <h1 class="cache">Mes projets</h1>
+    <section class="cs-zone" aria-label="Liste des projets">
+      <p class="cs-titre" id="cs-titre" aria-hidden="true"><span class="cs-titre-nom">Cycle'Up Pyrénées</span><span class="cs-titre-info">Web · Le site d'un Living Lab des mobilités douces entre la Haute-Bigorre et l'Aragon, avec une rosalie qui avance quand on fait défiler la page.</span></p>
+      <ul class="cs-rangee" id="rangee">
+        <li data-cat="web">
+          <a class="tuile" href="projets/cycleup-pyrenees.html" data-info="Web · Le site d'un Living Lab des mobilités douces entre la Haute-Bigorre et l'Aragon, avec une rosalie qui avance quand on fait défiler la page.">
+            <span class="vis vis-couv-zone vis--carre couv-2">
+              <span class="vis-couv" aria-hidden="true">Cycle'Up Pyrénées</span>
+              <img src="assets/projets/cycleup-pyrenees/vignette.jpg" alt="Accueil du site Cycle'Up Pyrénées" width="1000" height="1000" decoding="async">
+            </span>
+            <span class="cache">Cycle'Up Pyrénées</span>
+          </a>
+        </li>
+        <li data-cat="web">
+          <a class="tuile" href="projets/mmicine.html" data-info="Web · Un site pour organiser des soirées cinéma, en PHP avec une base MySQL.">
+            <span class="vis vis-couv-zone vis--carre couv-0">
+              <span class="vis-couv" aria-hidden="true">MMICiné</span>
+              <img src="assets/projets/mmicine/jaquette.jpg" alt="TODO : page d'accueil de MMICiné" width="1200" height="1800" decoding="async">
+            </span>
+            <span class="cache">MMICiné</span>
+          </a>
+        </li>
+        <li data-cat="affiches">
+          <a class="tuile" href="projets/affiche-1.html" data-info="Affiches · Une carte de vœux 2026 pour la Cité de l'espace de Toulouse : un module lunaire qui se pose sur l'eau, en bleu canard et orange.">
+            <span class="vis vis-couv-zone vis--carre couv-1">
+              <span class="vis-couv" aria-hidden="true">Carte de vœux Cité de l'espace</span>
+              <img src="assets/projets/affiche-1/vignette.jpg" alt="Haut de la carte de vœux, avec la planète bleue et 2026" width="1000" height="1000" decoding="async">
+            </span>
+            <span class="cache">Carte de vœux Cité de l'espace</span>
+          </a>
+        </li>
+        <li data-cat="affiches">
+          <a class="tuile" href="projets/affiche-2.html" data-info="Affiches · L'affiche d'un débat ouvert sur l'A69 à l'IUT de Tarbes : un grand titre, une foule en fond violet et deux personnages découpés face à face.">
+            <span class="vis vis-couv-zone vis--carre couv-2">
+              <span class="vis-couv" aria-hidden="true">Venez débattre</span>
+              <img src="assets/projets/affiche-2/vignette.jpg" alt="Haut de l'affiche avec le titre Venez débattre" width="1000" height="1000" decoding="async">
+            </span>
+            <span class="cache">Venez débattre</span>
+          </a>
+        </li>
+        <li data-cat="affiches">
+          <a class="tuile" href="projets/affiche-3.html" data-info="Affiches · Une double page de magazine qui compare le livre et le film Harry Potter : le texte prend la forme d'un vieux grimoire, l'affiche du film occupe l'autre page.">
+            <span class="vis vis-couv-zone vis--carre couv-0">
+              <span class="vis-couv" aria-hidden="true">Fidélité à une œuvre</span>
+              <img src="assets/projets/affiche-3/vignette.jpg" alt="Titre Fidélité à une œuvre originale sur vieux papier" width="1000" height="1000" decoding="async">
+            </span>
+            <span class="cache">Fidélité à une œuvre</span>
+          </a>
+        </li>
+        <li data-cat="3d">
+          <a class="tuile" href="projets/3d-1.html" data-info="3D · TODO : une phrase sur le projet (modèle, scène, rendu, animation).">
+            <span class="vis vis-couv-zone vis--carre couv-1">
+              <span class="vis-couv" aria-hidden="true">TODO Projet 3D n°1</span>
+              <img src="assets/projets/3d-1/jaquette.jpg" alt="TODO" width="1200" height="1800" decoding="async">
+            </span>
+            <span class="cache">TODO Projet 3D n°1</span>
+          </a>
+        </li>
+        <li data-cat="3d">
+          <a class="tuile" href="projets/3d-2.html" data-info="3D · TODO : une phrase sur le projet.">
+            <span class="vis vis-couv-zone vis--carre couv-2">
+              <span class="vis-couv" aria-hidden="true">TODO Projet 3D n°2</span>
+              <img src="assets/projets/3d-2/jaquette.jpg" alt="TODO" width="1200" height="1800" decoding="async">
+            </span>
+            <span class="cache">TODO Projet 3D n°2</span>
+          </a>
+        </li>
+        <li class="cs-vide" hidden>Pas encore de projet dans cette catégorie.</li>
+      </ul>
+    </section>
+  </main>
+
+  <nav class="os-dock" aria-label="Navigation principale">
+    <a class="os-dock-btn" href="index.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#accueil"/></svg></span><span class="os-dock-nom">Accueil</span></a>
+    <a class="os-dock-btn" href="projets.html" aria-current="page"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#tout"/></svg></span><span class="os-dock-nom">Projets</span></a>
+    <a class="os-dock-btn" href="a-propos.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#apropos"/></svg></span><span class="os-dock-nom">À propos</span></a>
+    <a class="os-dock-btn" href="contact.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#contact"/></svg></span><span class="os-dock-nom">Contact</span></a>
+    <a class="os-dock-btn" href="assets/cv.pdf" target="_blank" rel="noopener"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#cv"/></svg></span><span class="os-dock-nom">Mon CV</span></a>
+    <span class="os-dock-sep" aria-hidden="true"></span>
+    <button class="os-dock-btn" type="button" id="os-theme" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="../assets/icones.svg#soleil"/></svg></span><span class="os-dock-nom">Version claire</span></button>
+    <button class="os-dock-btn" type="button" id="os-son" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#muet"/></svg></span><span class="os-dock-nom">Sons coupés</span></button>
+  </nav>
+
+  <div class="os-aides-bas" aria-hidden="true">
+    <span class="osa"><kbd data-k="ArrowLeft">←</kbd><kbd data-k="ArrowRight">→</kbd>Choisir</span>
+    <span class="osa"><kbd data-k="Enter" class="osa-large">Entrée ↵</kbd>Ouvrir</span>
+    <span class="osa"><kbd data-k="Escape" class="osa-large">Échap</kbd>Accueil</span>
+  </div>
+</body>
+</html>
