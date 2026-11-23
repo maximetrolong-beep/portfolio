@@ -386,13 +386,6 @@ main { padding-left: var(--regle); }
 .moi-texte p { max-width: 58ch; margin: 0 0 16px; }
 .moi-texte .titre-section { margin-bottom: 28px; }
 .moi-intro { font-size: clamp(20px, 1.7vw, 25px); line-height: 1.4; color: var(--papier); }
-.moi-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
-.moi-colonnes h3 { margin: 0 0 14px; font: 500 13px/1 var(--mono); color: var(--craie-2); }
-.liste { list-style: none; margin: 0; padding: 0; }
-.liste li { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--trait-fort); }
-.liste span { font: 400 13px/1.7 var(--mono); color: var(--vert); }
-.pastilles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.pastilles li { padding: 6px 11px; border: 1px solid var(--trait-fort); border-radius: 999px; font-size: 14px; }
 
 /* 11. Contact */
 .contact { padding: 100px var(--marge) 140px; text-align: center; }
@@ -426,7 +419,7 @@ main { padding-left: var(--regle); }
 @media (max-width: 760px) {
   :root { --regle: 0px; --case: 20px; }
   .regle, .coin, .viseur, .selection { display: none; }
-  .logo { top: 14px; left: 14px; height: 40px; font-size: 36px; }
+  .logo { position: absolute; top: 14px; left: 14px; height: 40px; font-size: 36px; }
   .palette { top: auto; bottom: 12px; right: 50%; translate: 50% 0; }
   .palette { gap: 0; padding: 4px 4px 6px; }
   .palette a, .palette a:last-of-type {
@@ -450,7 +443,6 @@ main { padding-left: var(--regle); }
   .planche { padding-top: 72px; padding-bottom: 96px; }
   .descendre { bottom: 92px; }
 
-  .moi-colonnes { grid-template-columns: 1fr; gap: 32px; }
   .filtres kbd { display: none; }
   .filtres button { padding: 8px 14px; }
   .menu { height: 46svh; margin-top: 28px; }

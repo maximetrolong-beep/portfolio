@@ -94,7 +94,7 @@
 /* 3. Moi */
 .page--moi { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 110px); align-items: start; }
 .tirage { position: sticky; top: calc(var(--regle) + 80px); }
-.tirage-cadre { margin: 0; position: relative; max-width: 560px; }
+.tirage-cadre { margin: 0; position: relative; max-width: min(560px, (100svh - var(--regle) - 160px) * 1200 / 1799); }
 .tirage-img { width: 100%; aspect-ratio: 1200 / 1799; object-fit: cover; background: #0b0b0c; }
 /* repères de coupe autour du tirage */
 .tirage-cadre::before {
@@ -110,37 +110,90 @@
     linear-gradient(var(--r), var(--r)) calc(100% - 16px) 100% / 1px 10px no-repeat;
 }
 .tirage-nom { position: absolute; left: 0; top: -30px; font: 500 11px/1 var(--mono); color: var(--craie-2); }
-.tirage-nom span { color: var(--craie-3); margin-left: 8px; }
+.tirage-info { color: var(--craie-3); margin-left: 8px; font-variant-numeric: tabular-nums; }
 
-.reglage {
-  display: grid; grid-template-columns: auto 1fr 52px; align-items: center; gap: 14px;
-  max-width: 560px; margin-top: 28px; padding: 12px 14px;
-  background: var(--tapis-3); border: 1px solid var(--trait-fort); border-radius: 10px;
-  font: 400 12px/1 var(--mono); color: var(--craie-2);
+/* Cadre de transformation : apparaît au survol (toujours visible au tactile) */
+.tirage-objet { position: relative; transform-origin: 50% 50%; }
+.transfo { position: absolute; inset: 0; border: 1.5px solid var(--fluo); opacity: 0; transition: opacity .2s; pointer-events: none; }
+.tirage-cadre:hover .transfo, .tirage-objet.transforme .transfo { opacity: 1; }
+.transfo .poignee { width: 11px; height: 11px; margin: -6px; pointer-events: auto; touch-action: none; transition: scale .15s, background .15s; }
+.transfo .poignee:hover, .transfo .poignee:active { scale: 1.35; background: var(--fluo); }
+.transfo [data-p="nw"] { left: 0; top: 0; cursor: nwse-resize; }
+.transfo [data-p="n"]  { left: 50%; top: 0; cursor: ns-resize; }
+.transfo [data-p="ne"] { left: 100%; top: 0; cursor: nesw-resize; }
+.transfo [data-p="w"]  { left: 0; top: 50%; cursor: ew-resize; }
+.transfo [data-p="e"]  { left: 100%; top: 50%; cursor: ew-resize; }
+.transfo [data-p="sw"] { left: 0; top: 100%; cursor: nesw-resize; }
+.transfo [data-p="s"]  { left: 50%; top: 100%; cursor: ns-resize; }
+.transfo [data-p="se"] { left: 100%; top: 100%; cursor: nwse-resize; }
+.transfo-pivot { /* point de référence au centre, comme dans Photoshop */
+  position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px;
+  border: 1.5px solid var(--fluo); border-radius: 50%;
+  background: linear-gradient(var(--fluo), var(--fluo)) 50% / 1.5px 100% no-repeat, linear-gradient(var(--fluo), var(--fluo)) 50% / 100% 1.5px no-repeat;
 }
-.reglage-val { text-align: right; color: var(--papier); font-variant-numeric: tabular-nums; }
-.reglage input {
-  -webkit-appearance: none; appearance: none; width: 100%; height: 22px; margin: 0; background: none; cursor: ew-resize;
-  --p: 40%;
-}
-.reglage input::-webkit-slider-runnable-track {
-  height: 4px; border-radius: 2px;
-  background: linear-gradient(90deg, #000, var(--papier)) 0 0 / 100% 100%;
-  box-shadow: inset 0 0 0 1px var(--trait-fort);
-}
-.reglage input::-moz-range-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, #000, var(--papier)); }
-.reglage input::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 14px; height: 14px; margin-top: -5px; border-radius: 50%;
-  background: var(--papier); border: 2px solid var(--fluo); box-shadow: 0 2px 6px rgba(0,0,0,.6);
-}
-.reglage input::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--papier); border: 2px solid var(--fluo); }
-.reglage input:focus-visible { outline: none; }
-.reglage input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(255, 90, 31, .35); }
+.tirage-aide { margin: 26px 0 0; font: 400 12px/1 var(--mono); color: var(--craie-3); opacity: 0; transition: opacity .2s; }
+.tirage-aide span { color: var(--fluo); margin-right: 8px; }
+.tirage:hover .tirage-aide { opacity: 1; }
+@media (hover: none) { .transfo, .tirage-aide { opacity: 1; } }
 
 .page--moi .moi-texte { padding-top: 8px; }
 .page--moi .titre-page { margin-bottom: 32px; }
 .moi-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin: 32px 0 0; }
-.moi-colonnes h2 { margin: 0 0 14px; font: 500 13px/1 var(--mono); color: var(--craie-2); }
+/* Moi : parcours (frise graduée) et outils */
+.moi-bloc { margin-top: 56px; }
+.moi-bloc h2 { margin: 0 0 18px; font: 500 13px/1 var(--mono); color: var(--craie-2); }
+
+.frise { position: relative; padding: 30px 0 0; }
+.frise-pistes { list-style: none; margin: 0; padding: 0;
+  background: repeating-linear-gradient(90deg, var(--trait-fin) 0 1px, transparent 1px calc(100% / var(--mois))); }
+.frise-pistes li { position: relative; padding: 10px 0 12px; border-bottom: 1px dashed var(--trait-fort); }
+.frise-nom { position: relative; z-index: 1; margin: 0 0 8px; padding-left: calc(var(--d) / var(--mois) * 100%); font-size: 16px; color: var(--papier); white-space: nowrap; }
+.frise-nom span { margin-left: 6px; font: 400 12px/1 var(--mono); color: var(--craie-2); }
+.frise-barre {
+  display: flex; align-items: center; height: 22px; padding: 0 8px;
+  margin-left: calc(var(--d) / var(--mois) * 100%); width: calc((var(--f) - var(--d)) / var(--mois) * 100%);
+  background: var(--tapis-2); border: 1px solid var(--trait-fort); border-radius: 4px;
+  font: 500 11px/1 var(--mono); color: var(--craie-2); white-space: nowrap;
+}
+.frise-barre b { font-weight: 500; }
+/* formation en cours : orange jusqu'à aujourd'hui, hachuré après */
+.en-cours .frise-barre {
+  border-color: var(--fluo); color: var(--encre);
+  background:
+    linear-gradient(90deg, var(--fluo) 0 var(--fait, 64%), transparent 0),
+    repeating-linear-gradient(-45deg, rgba(255, 90, 31, .28) 0 2px, transparent 2px 6px);
+}
+.frise-echelle { position: relative; height: 26px; border-top: 1px solid var(--craie-3); }
+.frise-echelle span {
+  position: absolute; top: 0; left: calc(var(--a) / var(--mois) * 100%);
+  padding: 8px 0 0 5px; border-left: 1px solid var(--craie-3);
+  font: 400 11px/1 var(--mono); color: var(--craie-2);
+}
+.frise-tete {
+  position: absolute; top: 0; bottom: 26px; left: calc(var(--t) / var(--mois) * 100%);
+  width: 0; border-left: 1.5px solid var(--fluo); pointer-events: none;
+}
+.frise-tete { top: 22px; }
+.frise-tete::before { content: ""; position: absolute; top: -1px; left: -6px; border: 5px solid transparent; border-top: 7px solid var(--fluo); }
+.frise-tete span {
+  position: absolute; top: -21px; left: 0; translate: -50% 0;
+  padding: 3px 5px; background: var(--fluo); color: var(--encre); border-radius: 3px;
+  font: 500 10px/1 var(--mono); white-space: nowrap;
+}
+
+.outils { display: grid; grid-template-columns: 64px 1fr; gap: 10px 16px; align-items: start; }
+.outils-groupe { margin: 0; padding-top: 26px; font: 400 12px/1 var(--mono); color: var(--craie-3); }
+.outils ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.outil {
+  position: relative; width: 92px; padding: 14px 6px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  background: var(--tapis-3); border: 1px solid var(--trait-fort); border-radius: 8px;
+  font: 400 11px/1.2 var(--mono); color: var(--craie-2); text-align: center;
+  transition: border-color .2s, color .2s, translate .2s var(--sortie);
+}
+.outil svg { width: 34px; height: 34px; transition: scale .25s var(--sortie); }
+.outil:hover { border-color: var(--fluo); color: var(--craie); translate: 0 -2px; }
+.outil:hover svg { scale: 1.08; }
 
 /* 4. Contact */
 .page--contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px clamp(32px, 5vw, 80px); align-items: start; }
@@ -358,4 +411,10 @@
   .pj-fiche dl div:nth-last-child(2) { border-bottom: 1px solid var(--trait-fort); }
   .pj-suite { grid-template-columns: 1fr 1fr; }
   .pj-tous { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+}
+
+@media (max-width: 760px) {
+  .outils { grid-template-columns: 1fr; gap: 8px; }
+  .outils-groupe { padding-top: 10px; }
+  .outil { width: calc((100% - 16px) / 3); }
 }

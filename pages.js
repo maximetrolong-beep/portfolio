@@ -123,21 +123,64 @@
     }
   }
 
-  /* ---------- Moi : réglage d'exposition sur la photo ---------- */
-  const expo = $("#expo");
-  if (expo) {
-    const img = $(".tirage-img"), val = $(".reglage-val");
+  /* ---------- Moi : cadre de transformation sur la photo ----------
+     Coins = agrandir ou rétrécir, côtés = étirer dans un seul sens.
+     Au lâcher, la photo revient à 100 % avec un rebond. */
+  /* Frise du parcours : la tête de lecture se place à la date du jour (mois 0 = septembre 2023) */
+  const frise = $(".frise");
+  if (frise) {
+    const d = new Date();
+    const total = +getComputedStyle(frise).getPropertyValue("--mois") || 46;
+    const t = Math.max(0, Math.min(total, (d.getFullYear() - 2023) * 12 + d.getMonth() - 8 + d.getDate() / 31));
+    $(".frise-tete", frise).style.setProperty("--t", t.toFixed(2));
+    const enCours = $(".en-cours", frise);
+    if (enCours) {
+      const deb = +enCours.style.getPropertyValue("--d"), fin = +enCours.style.getPropertyValue("--f");
+      enCours.style.setProperty("--fait", `${Math.max(0, Math.min(100, (t - deb) / (fin - deb) * 100)).toFixed(1)}%`);
+    }
+  }
+
+  const objet = $(".tirage-objet");
+  if (objet) {
+    const info = $(".tirage-info");
+    let sx = 1, sy = 1;
     const appliquer = () => {
-      const v = parseFloat(expo.value);
-      // une exposition « photo » : luminosité en puissance de 2, un peu de contraste en plus quand on éclaircit
-      img.style.filter = `brightness(${Math.pow(2, v).toFixed(3)}) contrast(${(1 + Math.max(0, v) * .08).toFixed(3)})`;
-      val.textContent = (v > 0 ? "+" : "") + v.toFixed(2).replace(".", ",");
-      expo.style.setProperty("--p", `${((v - expo.min) / (expo.max - expo.min)) * 100}%`);
+      objet.style.scale = `${sx} ${sy}`;
+      info.textContent = `L ${Math.round(sx * 100)} % · H ${Math.round(sy * 100)} %`;
     };
-    expo.addEventListener("input", appliquer);
-    // double-clic : remise à zéro, comme dans les logiciels
-    expo.addEventListener("dblclick", () => { expo.value = 0; appliquer(); });
-    appliquer();
+    $$(".transfo .poignee", objet).forEach(p => {
+      p.addEventListener("pointerdown", e => {
+        e.preventDefault();
+        p.setPointerCapture(e.pointerId);
+        const sens = p.dataset.p;
+        const r = objet.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const dx0 = Math.abs(e.clientX - cx) || 1, dy0 = Math.abs(e.clientY - cy) || 1;
+        const sx0 = sx, sy0 = sy;
+        const borne = v => Math.min(1.25, Math.max(.75, v));
+        objet.classList.add("transforme");
+        if (window.gsap) gsap.killTweensOf(objet);
+        const bouger = ev => {
+          const kx = Math.abs(ev.clientX - cx) / dx0, ky = Math.abs(ev.clientY - cy) / dy0;
+          if (sens.length === 2) { const k = Math.hypot(ev.clientX - cx, ev.clientY - cy) / Math.hypot(dx0, dy0); sx = borne(sx0 * k); sy = borne(sy0 * k); }
+          else if (sens === "e" || sens === "w") sx = borne(sx0 * kx);
+          else sy = borne(sy0 * ky);
+          appliquer();
+        };
+        const lacher = () => {
+          p.removeEventListener("pointermove", bouger);
+          objet.classList.remove("transforme");
+          const fin = () => { sx = 1; sy = 1; appliquer(); objet.style.scale = ""; };
+          if (window.gsap && !A.calme) {
+            const o = { x: sx, y: sy };
+            gsap.to(o, { x: 1, y: 1, duration: .9, ease: "elastic.out(1, .45)", onUpdate() { sx = o.x; sy = o.y; appliquer(); }, onComplete: fin });
+          } else fin();
+        };
+        p.addEventListener("pointermove", bouger);
+        p.addEventListener("pointerup", lacher, { once: true });
+        p.addEventListener("pointercancel", lacher, { once: true });
+      });
+    });
     if (window.gsap && !A.calme) {
       gsap.fromTo(".tirage-cadre", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.3, ease: "expo.inOut", clearProps: "clipPath" });
       gsap.fromTo(".moi-texte > :not(.titre-section)",{ opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .8, stagger: .05, ease: "expo.out", delay: .3, clearProps: "all" });

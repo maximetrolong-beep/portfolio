@@ -9,10 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css?v=15">
-  <link rel="stylesheet" href="pages.css?v=4">
+  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="pages.css?v=6">
 </head>
 <body data-page="moi">
+  <!-- Logos des outils (Blender et MySQL : Simple Icons, CC0) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-ps" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#001E36"/><text x="12" y="16.6" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-weight="700" font-size="11.5" fill="#31A8FF">Ps</text></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#330000"/><text x="12" y="16.6" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-weight="700" font-size="11.5" fill="#FF9A00">Ai</text></symbol>
+    <symbol id="i-id" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#49021F"/><text x="12" y="16.6" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-weight="700" font-size="11.5" fill="#FF3366">Id</text></symbol>
+    <symbol id="i-blender" viewBox="0 0 24 24"><path fill="#E87D0D" d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></symbol>
+    <symbol id="i-figma" viewBox="-9.5 0 57 57"><path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></symbol>
+    <symbol id="i-html" viewBox="0 0 24 24"><path fill="#E34F26" d="M2.2 1h19.6l-1.8 20.1L12 23.3l-8-2.2z"/><path fill="#EF652A" d="M12 2.7v18.8l6.5-1.8 1.5-17z"/><path fill="#fff" d="M7 5.6h10l-.2 2.3H9.6l.2 2.5h6.8l-.6 6.8L12 18.2l-4-1.1-.3-3h2.2l.1 1.5 2 .5 2-.5.2-2.4H7.6z"/></symbol>
+    <symbol id="i-js" viewBox="0 0 24 24"><rect width="24" height="24" rx="2" fill="#F7DF1E"/><text x="21" y="20.5" text-anchor="end" font-family="Instrument Sans, system-ui, sans-serif" font-weight="700" font-size="10.5" fill="#111">JS</text></symbol>
+    <symbol id="i-php" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="11.5" ry="7" fill="#777BB4"/><text x="12" y="15.2" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-weight="700" font-style="italic" font-size="9" fill="#fff">php</text></symbol>
+    <symbol id="i-mysql" viewBox="0 0 24 24"><path fill="#4479A1" d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></symbol>
+    <symbol id="i-tablette" viewBox="0 0 24 24" fill="none" stroke="#E4E2DC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="15" height="14" rx="2"/><path d="m21.5 3.5-8 8-1 3 3-1 8-8z" fill="#FF5A1F" stroke="#FF5A1F"/></symbol>
+  </svg>
+
   <a class="evitement" href="#texte">Aller au texte</a>
 
   <div class="regle regle--h" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
@@ -32,17 +46,21 @@
   </nav>
 
   <main id="haut" class="page page--moi">
-    <!-- La photo, avec un vrai réglage d'exposition -->
+    <!-- La photo, avec un cadre de transformation façon logiciel (les poignées s'étirent pour de vrai) -->
     <section class="tirage" aria-label="Portrait">
       <figure class="tirage-cadre">
-        <img class="tirage-img" src="img/moi.webp?v=3" alt="Portrait de Maxime en gilet zippé gris, sur fond noir" width="1200" height="1799">
-        <figcaption class="tirage-nom">moi.webp <span>1200 × 1799</span></figcaption>
+        <div class="tirage-objet">
+          <img class="tirage-img" src="img/moi.webp?v=3" alt="Portrait de Maxime en gilet zippé gris, sur fond noir" width="1200" height="1799">
+          <div class="transfo" aria-hidden="true">
+            <i class="poignee" data-p="nw"></i><i class="poignee" data-p="n"></i><i class="poignee" data-p="ne"></i>
+            <i class="poignee" data-p="w"></i><i class="poignee" data-p="e"></i>
+            <i class="poignee" data-p="sw"></i><i class="poignee" data-p="s"></i><i class="poignee" data-p="se"></i>
+            <span class="transfo-pivot"></span>
+          </div>
+        </div>
+        <figcaption class="tirage-nom">moi.webp <span class="tirage-info">L 100 % · H 100 %</span></figcaption>
       </figure>
-      <div class="reglage">
-        <label for="expo">Exposition</label>
-        <input id="expo" type="range" min="-1" max="1.5" step="0.05" value="0">
-        <output for="expo" class="reglage-val">0,00</output>
-      </div>
+      <p class="tirage-aide"><span>Transformation</span> tire une poignée</p>
     </section>
 
     <section class="moi-texte" id="texte" aria-labelledby="titre-moi">
@@ -57,22 +75,33 @@
         <a class="lien-simple" href="img/cv.pdf" target="_blank" rel="noopener">Mon CV (PDF)</a>
       </div>
 
-      <div class="moi-colonnes">
-        <div>
-          <h2>Parcours</h2>
-          <ul class="liste">
-            <li><span>2025–27</span>BUT MMI, IUT de Tarbes</li>
-            <li><span>2024–25</span>BUT GEII</li>
-            <li><span>2024</span>Bac NSI et sciences de l'ingénieur, Bastia</li>
-          </ul>
+      <!-- Parcours : une frise graduée, de septembre 2023 à juillet 2027 (46 mois). --d et --f = mois de début et de fin -->
+      <section class="moi-bloc" aria-labelledby="t-parcours">
+        <h2 id="t-parcours">Parcours</h2>
+        <div class="frise" style="--mois: 46">
+          <ol class="frise-pistes">
+            <li style="--d: 0; --f: 10"><p class="frise-nom">Bac NSI et sciences de l'ingénieur <span>Bastia</span></p><span class="frise-barre"><b>2023 – 24</b></span></li>
+            <li style="--d: 12; --f: 22"><p class="frise-nom">BUT GEII <span>1re année</span></p><span class="frise-barre"><b>2024 – 25</b></span></li>
+            <li class="en-cours" style="--d: 24; --f: 46"><p class="frise-nom">BUT MMI <span>IUT de Tarbes</span></p><span class="frise-barre"><b>2025 – 27</b></span></li>
+          </ol>
+          <div class="frise-echelle" aria-hidden="true">
+            <span style="--a: 4">2024</span><span style="--a: 16">2025</span><span style="--a: 28">2026</span><span style="--a: 40">2027</span>
+          </div>
+          <span class="frise-tete" style="--t: 38" aria-hidden="true"><span>aujourd'hui</span></span>
         </div>
-        <div>
-          <h2>Outils</h2>
-          <ul class="pastilles">
-            <li>Photoshop</li><li>InDesign</li><li>Illustrator</li><li>Blender</li><li>Figma</li><li>HTML / CSS</li><li>JavaScript</li><li>PHP / MySQL</li><li>Dessin sur tablette</li>
-          </ul>
+      </section>
+
+      <section class="moi-bloc" aria-labelledby="t-outils">
+        <h2 id="t-outils">Outils</h2>
+        <div class="outils">
+          <p class="outils-groupe">Image</p>
+          <ul><li class="outil"><svg aria-hidden="true"><use href="#i-ps"/></svg><span>Photoshop</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-ai"/></svg><span>Illustrator</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-id"/></svg><span>InDesign</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-tablette"/></svg><span>Tablette</span></li></ul>
+          <p class="outils-groupe">3D</p>
+          <ul><li class="outil"><svg aria-hidden="true"><use href="#i-blender"/></svg><span>Blender</span></li></ul>
+          <p class="outils-groupe">Web</p>
+          <ul><li class="outil"><svg aria-hidden="true"><use href="#i-figma"/></svg><span>Figma</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-html"/></svg><span>HTML / CSS</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-js"/></svg><span>JavaScript</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-php"/></svg><span>PHP</span></li><li class="outil"><svg aria-hidden="true"><use href="#i-mysql"/></svg><span>MySQL</span></li></ul>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
@@ -85,6 +114,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="app.js?v=12" defer></script>
-  <script src="pages.js?v=5" defer></script>
+  <script src="pages.js?v=7" defer></script>
 </body>
 </html>
