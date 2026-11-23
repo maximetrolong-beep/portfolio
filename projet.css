@@ -1,0 +1,241 @@
+/* =========================================================
+   ATLAS · page projet façon logiciel 3D
+   (s'appuie sur les variables de style.css)
+   ========================================================= */
+
+body.appli {
+  height: 100svh; overflow: hidden;
+  display: grid; grid-template-rows: 44px 1fr;
+  background: var(--tapis-3);
+  font-size: 15px;
+}
+
+/* 1. Barre du haut */
+.ap-haut {
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 12px 0 0;
+  background: var(--tapis-3);
+  border-bottom: 1px solid var(--trait-fort);
+  font: 400 13px/1 var(--mono);
+  min-width: 0;
+}
+.ap-logo {
+  width: 44px; height: 44px; flex: none; display: grid; place-items: center;
+  background: var(--fluo); color: var(--encre); text-decoration: none; font: 700 12px/1 var(--mono);
+}
+.ap-retour { display: inline-flex; align-items: center; gap: 8px; color: var(--craie-2); text-decoration: none; white-space: nowrap; }
+.ap-retour:hover { color: var(--craie); }
+.ap-fichier { color: var(--craie); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap-fichier span { color: var(--craie-3); }
+.ap-espaces { display: flex; gap: 2px; margin: 0 auto; }
+.ap-espaces button {
+  border: 0; background: none; cursor: pointer;
+  padding: 8px 14px; border-radius: 6px;
+  font: 500 13px/1 var(--texte); color: var(--craie-2);
+  transition: background .2s, color .2s;
+}
+.ap-espaces button:hover { color: var(--craie); background: var(--tapis); }
+.ap-espaces button[aria-pressed="true"] { background: var(--tapis-2); color: var(--papier); box-shadow: inset 0 -2px 0 var(--fluo); }
+.ap-voisins { display: flex; gap: 4px; }
+.ap-voisins a {
+  width: 30px; height: 30px; display: grid; place-items: center; border-radius: 6px;
+  border: 1px solid var(--trait-fort); color: var(--craie); text-decoration: none; font: 500 18px/1 var(--texte);
+}
+.ap-voisins a:hover { border-color: var(--fluo); color: var(--fluo); }
+
+/* 2. Zone de travail : 4 panneaux */
+.ap-zone {
+  display: grid; min-height: 0;
+  grid-template-columns: 230px minmax(0, 1fr) 340px;
+  grid-template-rows: minmax(0, 1fr) 104px;
+  grid-template-areas: "arbre vue props" "frise frise frise";
+  gap: 3px; padding: 3px;
+  background: var(--tapis-3);
+  transition: grid-template-columns .5s var(--sortie), grid-template-rows .5s var(--sortie);
+}
+.ap-zone[data-espace="recit"] { grid-template-columns: 230px minmax(0, 1fr) minmax(380px, 44%); }
+.ap-zone[data-espace="images"] { grid-template-columns: 0px minmax(0, 1fr) 0px; grid-template-rows: minmax(0, 1fr) 132px; }
+.ap-zone[data-espace="images"] .ap-arbre, .ap-zone[data-espace="images"] .ap-props { opacity: 0; pointer-events: none; }
+
+.panneau {
+  background: var(--panneau); border-radius: 6px; overflow: auto; min-width: 0;
+  scrollbar-width: thin; scrollbar-color: var(--craie-3) transparent;
+  transition: opacity .3s;
+}
+.panneau-titre, .bloc-titre {
+  margin: 0; padding: 10px 14px 8px;
+  font: 500 11px/1 var(--mono); color: var(--craie-2);
+  border-bottom: 1px solid var(--trait-fin);
+}
+
+/* 3. Arborescence */
+.ap-arbre { grid-area: arbre; }
+.arbre, .arbre ul { list-style: none; margin: 0; padding: 0; }
+.arbre { padding: 6px 0; }
+.arbre ul { padding-left: 14px; }
+.arbre-ligne {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 5px 12px; border: 0; background: none; text-align: left;
+  font: 400 13px/1.2 var(--texte); color: var(--craie);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+button.arbre-ligne { cursor: pointer; }
+button.arbre-ligne:hover { background: var(--tapis); }
+.arbre-ligne em { margin-left: auto; font: 400 11px/1 var(--mono); font-style: normal; color: var(--craie-3); }
+.arbre-ligne.actif { background: rgba(255, 90, 31, .16); color: var(--papier); box-shadow: inset 2px 0 0 var(--fluo); }
+.arbre-ligne.actif .ico-image { border-color: var(--fluo); }
+.ico { width: 12px; height: 12px; flex: none; display: inline-block; border: 1.5px solid var(--craie-2); border-radius: 2px; }
+.ico-scene { border-radius: 50%; border-color: var(--fluo); }
+.ico-dossier { border-radius: 2px 2px 3px 3px; border-top-width: 3px; }
+.ico-texte { border: 0; background: linear-gradient(var(--craie-2), var(--craie-2)) 0 1px / 100% 1.5px no-repeat, linear-gradient(var(--craie-2), var(--craie-2)) 0 5px / 100% 1.5px no-repeat, linear-gradient(var(--craie-2), var(--craie-2)) 0 9px / 65% 1.5px no-repeat; }
+.ico-image { background: linear-gradient(135deg, transparent 55%, var(--craie-2) 55%); }
+
+/* 4. Vue 3D */
+.vue {
+  grid-area: vue; position: relative; overflow: hidden; border-radius: 6px;
+  background: radial-gradient(ellipse at 50% 40%, #222327, var(--tapis) 70%);
+  perspective: 1400px;
+  cursor: grab; touch-action: none; user-select: none;
+}
+.vue:active { cursor: grabbing; }
+.vue-tete {
+  position: absolute; z-index: 3; top: 10px; left: 14px; right: 120px;
+  display: flex; flex-direction: column; gap: 4px;
+  font: 400 12px/1.2 var(--mono); color: var(--craie-2); pointer-events: none;
+}
+.vue-objet b { font-weight: 500; color: var(--papier); }
+.vue-sol {
+  position: absolute; left: -50%; right: -50%; top: 52%; height: 140%;
+  background-image: linear-gradient(var(--trait-fort) 1px, transparent 1px), linear-gradient(90deg, var(--trait-fort) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform-origin: 50% 0;
+  transform: rotateX(78deg);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 60%);
+  pointer-events: none;
+}
+.vue-sol::before, .vue-sol::after { content: ""; position: absolute; }
+.vue-sol::before { left: 0; right: 0; top: 0; height: 2px; background: rgba(255, 90, 31, .55); }
+.vue-sol::after { top: 0; bottom: 0; left: 50%; width: 2px; background: rgba(139, 211, 160, .5); }
+.vue-scene {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  transform-style: preserve-3d;
+}
+.vue-objet-3d {
+  position: relative;
+  width: min(72%, calc((100svh - 260px) * var(--ratio, 1.5)));
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--zoom, 1));
+  transition: transform .7s var(--sortie);
+  will-change: transform;
+}
+.vue.tourne .vue-objet-3d { transition: none; }
+.vue-image { width: 100%; height: auto; box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); background: var(--papier); }
+.vue-contour { position: absolute; inset: -3px; border: 2px solid var(--fluo); pointer-events: none; }
+.vue-contour::after { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; translate: -50% -50%; border-radius: 50%; background: var(--fluo); box-shadow: 0 0 0 2px var(--tapis-3); }
+
+.gizmo { position: absolute; z-index: 3; top: 14px; right: 18px; width: 84px; height: 84px; border-radius: 50%; background: rgba(10, 10, 11, .55); }
+.g-axe { position: absolute; left: 50%; top: 50%; width: 30px; height: 2px; transform-origin: 0 50%; }
+.g-axe b { position: absolute; right: -11px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font: 500 10px/1 var(--mono); color: var(--encre); }
+.g-x { background: var(--fluo); rotate: var(--ax, 0deg); }
+.g-x b { background: var(--fluo); }
+.g-y { background: var(--vert); rotate: var(--ay, -60deg); }
+.g-y b { background: var(--vert); }
+.g-z { background: var(--papier); rotate: var(--az, -90deg); }
+.g-z b { background: var(--papier); }
+
+.vue-outils { position: absolute; z-index: 3; right: 18px; top: 112px; display: grid; gap: 4px; }
+.vue-btn { width: 34px; height: 30px; border: 0; border-radius: 6px; background: rgba(10, 10, 11, .7); cursor: pointer; display: grid; place-items: center; }
+.vue-btn:hover kbd, .vue-btn.actif kbd { background: var(--fluo); color: var(--encre); border-color: var(--fluo-sombre); }
+.vue-aide { position: absolute; left: 14px; bottom: 10px; margin: 0; font: 400 11px/1 var(--mono); color: var(--craie-3); pointer-events: none; }
+.vue-legende {
+  position: absolute; z-index: 3; left: 50%; bottom: 14px; translate: -50% 0; margin: 0;
+  max-width: min(560px, 80%); padding: 8px 12px; border-radius: 6px;
+  background: rgba(10, 10, 11, .82); color: var(--craie); font-size: 14px; line-height: 1.4; text-align: center;
+  pointer-events: none;
+}
+
+/* 5. Propriétés */
+.ap-props { grid-area: props; }
+.bloc { border-bottom: 1px solid var(--trait-fin); padding-bottom: 18px; scroll-margin-top: 4px; }
+.bloc > :not(.bloc-titre) { margin-left: 14px; margin-right: 14px; }
+.bloc p { margin-top: 14px; margin-bottom: 0; line-height: 1.6; color: var(--craie); }
+.bloc.eclaire { animation: eclair 1.2s var(--sortie); }
+@keyframes eclair { 0% { background: rgba(255, 90, 31, .22); } 100% { background: transparent; } }
+.props-nom {
+  margin-top: 16px; margin-bottom: 0;
+  font-family: var(--titre); font-weight: 800; font-variation-settings: "wdth" 80;
+  font-size: 40px; line-height: .95; letter-spacing: -.02em; color: var(--papier);
+}
+.props-accroche { font-size: 16px; }
+.champs { margin: 16px 14px 0; display: grid; gap: 3px; }
+.champs div { display: grid; grid-template-columns: 84px 1fr; align-items: center; gap: 10px; }
+.champs dt { font: 400 12px/1 var(--mono); color: var(--craie-2); text-align: right; }
+.champs dd { margin: 0; padding: 7px 10px; border-radius: 5px; background: var(--tapis-3); font-size: 14px; }
+.puce { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--fluo); color: var(--encre); font-weight: 600; font-size: 12px; }
+.todo { color: var(--craie-3) !important; font-family: var(--mono); font-size: 13px; }
+.ap-zone[data-espace="recit"] .bloc p { font-size: 17px; max-width: 60ch; }
+.ap-zone[data-espace="recit"] .props-nom { font-size: 56px; }
+
+/* 6. Frise */
+.frise {
+  grid-area: frise; display: grid; grid-template-columns: 190px 1fr; align-items: stretch;
+  background: var(--panneau); border-radius: 6px; overflow: hidden;
+}
+.frise-commandes { display: flex; align-items: center; gap: 4px; padding: 0 12px; border-right: 1px solid var(--trait-fin); }
+.frise-btn { width: 32px; height: 30px; border: 0; border-radius: 6px; background: var(--tapis-3); cursor: pointer; font-size: 12px; color: var(--craie); display: grid; place-items: center; }
+.frise-btn:hover { background: var(--tapis-2); }
+.frise-lecture { background: var(--fluo); }
+.frise-lecture:hover { background: #FF7440; }
+.ico-lecture { width: 0; height: 0; border-left: 9px solid var(--encre); border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 2px; }
+.frise-lecture[aria-pressed="true"] .ico-lecture { width: 10px; height: 11px; border: 0; margin: 0; background: linear-gradient(90deg, var(--encre) 35%, transparent 35% 65%, var(--encre) 65%); }
+.frise-num { margin-left: 8px; font: 400 12px/1 var(--mono); color: var(--craie-2); white-space: nowrap; }
+.f-actuel { color: var(--fluo); }
+.frise-piste { --bord: 70px; position: relative; padding: 0 28px; overflow: hidden; }
+.frise-graduations {
+  position: absolute; left: 0; right: 0; top: 0; height: 18px;
+  background-image: linear-gradient(90deg, var(--trait-fort) 1px, transparent 1px);
+  background-size: 2% 100%;
+  border-bottom: 1px solid var(--trait-fin);
+}
+.frise-cles { list-style: none; margin: 0; padding: 0; position: absolute; left: var(--bord); right: var(--bord); top: 18px; bottom: 0; }
+.frise-cles li { position: absolute; top: 0; bottom: 0; width: max-content; translate: -50% 0; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px; }
+.cle {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  border: 0; background: none; cursor: pointer; padding: 0;
+}
+.cle-losange { width: 12px; height: 12px; rotate: 45deg; background: var(--craie-2); border: 1.5px solid var(--tapis-3); transition: background .2s, scale .2s; }
+.cle-vignette { max-width: none; width: 64px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 3px; outline: 1px solid var(--trait-fort); opacity: .65; transition: opacity .2s, outline-color .2s, width .4s var(--sortie); }
+.ap-zone[data-espace="images"] .cle-vignette { width: 120px; }
+.cle-nom { font: 400 10px/1 var(--mono); color: var(--craie-3); }
+.cle:hover .cle-vignette { opacity: 1; }
+.cle.actif .cle-losange { background: var(--fluo); scale: 1.25; }
+.cle.actif .cle-vignette { opacity: 1; outline: 2px solid var(--fluo); }
+.cle.actif .cle-nom { color: var(--papier); }
+.frise-tete { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--fluo); left: 28px; transition: left .5s var(--sortie); pointer-events: none; }
+.frise-tete::before { content: ""; position: absolute; top: 0; left: 50%; translate: -50% 0; width: 14px; height: 16px; background: var(--fluo); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+
+/* 7. Petits écrans : vue, frise puis texte, la page défile */
+@media (max-width: 900px) {
+  body.appli { height: auto; overflow: auto; }
+  .ap-espaces, .ap-fichier { display: none; }
+  .ap-voisins { margin-left: auto; }
+  .ap-zone, .ap-zone[data-espace] {
+    grid-template-columns: 1fr; grid-template-rows: 58svh 96px auto;
+    grid-template-areas: "vue" "frise" "props";
+  }
+  .ap-arbre { display: none; }
+  .ap-props { overflow: visible; }
+  .frise { grid-template-columns: 1fr; grid-template-rows: 40px 1fr; }
+  .frise-commandes { border-right: 0; border-bottom: 1px solid var(--trait-fin); }
+  .frise-graduations { display: none; }
+  .frise-cles { top: 0; }
+  .frise-piste { --bord: 44px; }
+  .cle-vignette { width: 44px; }
+  .cle-nom { display: none; }
+  .vue-objet-3d { width: 86%; }
+  .gizmo { width: 64px; height: 64px; }
+  .g-axe { width: 22px; }
+  .vue-outils { top: 88px; }
+  .vue-aide { display: none; }
+  .vue-legende { font-size: 13px; }
+}

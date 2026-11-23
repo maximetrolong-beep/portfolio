@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MMICiné · Maxime Trolong</title>
+  <meta name="description" content="Un site pour organiser des soirées cinéma : les soirées, les films et les participants au même endroit, plutôt que dix messages de groupe.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23FF5A1F%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22monospace%22 font-size=%2213%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%23121611%22%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="pages.css?v=4">
+</head>
+<body data-page="projets">
+  <a class="evitement" href="#recit">Aller au texte</a>
+
+  <div class="regle regle--h" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <div class="regle regle--v" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <span class="coin" aria-hidden="true"></span>
+  <!-- Logo : pour mettre un PNG détouré, remplacer les deux <span> par <img src="img/logo.png" alt=""> -->
+  <a class="logo" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span>M</span><span>T</span></a>
+  <div class="viseur" aria-hidden="true"><span class="viseur-h"></span><span class="viseur-v"></span><span class="viseur-xy">x 0000 · y 0000</span></div>
+  <div class="selection" aria-hidden="true"><i class="poignee p1"></i><i class="poignee p2"></i><i class="poignee p3"></i><i class="poignee p4"></i><span class="selection-nom"></span></div>
+
+  <nav class="palette" aria-label="Navigation">
+    <a href="index.html" data-touche="h" data-page="accueil"><kbd>H</kbd>Planche</a>
+    <a href="projets.html" data-touche="p" data-page="projets"><kbd>P</kbd>Projets</a>
+    <a href="moi.html" data-touche="m" data-page="moi"><kbd>M</kbd>Moi</a>
+    <a href="contact.html" data-touche="c" data-page="contact"><kbd>C</kbd>Contact</a>
+    <a href="img/cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
+
+  <main id="haut" class="page page--projet">
+    <div class="pj-grille">
+      <aside class="pj-plan" aria-label="Images du projet">
+        <p class="pj-plan-barre"><span class="pj-plan-nom">captures à venir</span><span class="pj-plan-taille">— × —</span><span class="pj-plan-num">01 / 01</span></p>
+        <div class="pj-scene">
+          <figure class="pj-calque pj-calque--vide actif" data-img="0" data-nom="captures à venir" data-taille="— × —"><span>captures à venir</span></figure>
+        </div>
+      </aside>
+
+      <article class="pj-recit" id="recit">
+        <header class="pj-tete">
+          <p class="chemin"><a href="projets.html">maxime / projets</a> / <b>mmicine</b></p>
+          <p class="pj-type"><span class="fichier-cat fichier-cat--web">Web</span>Site web · 2025</p>
+          <h1 class="pj-titre">MMICiné</h1>
+          <p class="pj-accroche">Un site pour organiser des soirées cinéma : les soirées, les films et les participants au même endroit, plutôt que dix messages de groupe.</p>
+        </header>
+
+        <section class="pj-fiche" aria-label="Fiche du projet">
+          <p class="pj-fiche-barre">Fiche</p>
+          <dl>
+            <div><dt>Année</dt><dd>2025</dd></div>
+            <div><dt>Type</dt><dd>Site web</dd></div>
+            <div><dt>Cadre</dt><dd>Projet d'école, BUT MMI</dd></div>
+            <div><dt>Outils</dt><dd>PHP · MySQL · HTML · CSS</dd></div>
+          </dl>
+        </section>
+
+        <nav class="pj-sommaire" aria-label="Sommaire">
+          <a href="#b1"><span>01</span>Contexte</a>
+          <a href="#b2"><span>02</span>Mon rôle</a>
+          <a href="#b3"><span>03</span>La base de données</a>
+          <a href="#b4"><span>04</span>Le résultat</a>
+        </nav>
+
+        <section class="pj-bloc" data-img="0" aria-labelledby="b1">
+          <h2 id="b1"><span>01</span>Contexte</h2>
+          <p>Le but&nbsp;: organiser des soirées cinéma sans passer par dix messages de groupe. Le site garde les soirées, les films et les participants au même endroit.</p>
+        </section>
+        <section class="pj-bloc" data-img="0" aria-labelledby="b2">
+          <h2 id="b2"><span>02</span>Mon rôle</h2>
+          <p>J'ai fait la base de données MySQL et les pages en PHP.</p><p class="todo">TODO&nbsp;: précise ta part si c'était en groupe.</p>
+        </section>
+        <section class="pj-bloc" data-img="0" aria-labelledby="b3">
+          <h2 id="b3"><span>03</span>La base de données</h2>
+          <p class="todo">TODO&nbsp;: le schéma : soirées, films, participants, votes.</p>
+        </section>
+        <section class="pj-bloc" data-img="0" aria-labelledby="b4">
+          <h2 id="b4"><span>04</span>Le résultat</h2>
+          <p class="todo">TODO&nbsp;: captures du site à ajouter.</p>
+        </section>
+      </article>
+    </div>
+
+    <nav class="pj-suite" aria-label="Autres projets">
+      <a href="projet-fidelite.html" rel="prev"><span><kbd>←</kbd> Précédent</span><b>Fidélité à une œuvre</b></a>
+      <a class="pj-tous" href="projets.html">Tous les projets</a>
+      <a href="projet-cycleup.html" rel="next"><span>Suivant <kbd>→</kbd></span><b>Cycle'Up Pyrénées</b></a>
+    </nav>
+  </main>
+
+  <footer class="pied">
+    <span>© 2026 Maxime Trolong</span>
+    <span>Projet 05 / 05</span>
+    <span class="pied-xy">x —, y —</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="app.js?v=12" defer></script>
+  <script src="pages.js?v=5" defer></script>
+</body>
+</html>

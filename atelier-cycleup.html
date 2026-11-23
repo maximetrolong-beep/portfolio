@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cycle'Up Pyrénées · mode atelier · Maxime Trolong</title>
+  <meta name="description" content="Cycle'Up Pyrénées, le site d'un Living Lab des mobilités douces. Projet de Maxime Trolong.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23FF5A1F%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22monospace%22 font-size=%2213%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%23121611%22%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="projet.css?v=5">
+</head>
+<body class="appli">
+
+  <!-- Barre du haut -->
+  <header class="ap-haut">
+    <a class="ap-logo" href="index.html" aria-label="Retour à la planche">MT</a>
+    <a class="ap-retour" href="projet-cycleup.html"><kbd>Échap</kbd> Vue simple</a>
+    <span class="ap-fichier">cycleup-pyrenees<span>.atlas</span></span>
+    <nav class="ap-espaces" aria-label="Espaces de travail">
+      <button type="button" data-espace="apercu" aria-pressed="true">Aperçu</button>
+      <button type="button" data-espace="recit" aria-pressed="false">Récit</button>
+      <button type="button" data-espace="images" aria-pressed="false">Images</button>
+    </nav>
+    <nav class="ap-voisins" aria-label="Autres projets">
+      
+      <a href="projet-voeux.html" rel="next" aria-label="Projet suivant : Carte de vœux">›</a>
+    </nav>
+  </header>
+
+  <main class="ap-zone" data-espace="apercu">
+
+    <!-- Arborescence -->
+    <aside class="panneau ap-arbre" aria-label="Arborescence du projet">
+      <p class="panneau-titre">Scène</p>
+      <ul class="arbre" role="tree">
+        <li role="treeitem" aria-expanded="true" class="arbre-groupe">
+          <span class="arbre-ligne"><i class="ico ico-scene"></i>Cycle'Up Pyrénées</span>
+          <ul role="group">
+            <li role="treeitem" aria-expanded="true" class="arbre-groupe">
+              <span class="arbre-ligne"><i class="ico ico-dossier"></i>Images <em>5</em></span>
+              <ul role="group" class="arbre-images"></ul>
+            </li>
+            <li role="treeitem" aria-expanded="true" class="arbre-groupe">
+              <span class="arbre-ligne"><i class="ico ico-dossier"></i>Récit</span>
+              <ul role="group">
+                <li role="treeitem"><button class="arbre-ligne" data-aller="contexte"><i class="ico ico-texte"></i>Contexte</button></li>
+                <li role="treeitem"><button class="arbre-ligne" data-aller="role"><i class="ico ico-texte"></i>Mon rôle</button></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Vue 3D -->
+    <section class="vue" aria-label="Vue de l'image active. Glisser pour tourner, molette pour zoomer, point pour recentrer.">
+      <div class="vue-tete">
+        <span>Vue utilisateur · perspective</span>
+        <span class="vue-objet">(1) <b class="vue-nom">accueil.webp</b></span>
+      </div>
+      <div class="vue-sol" aria-hidden="true"></div>
+      <div class="vue-scene">
+        <div class="vue-objet-3d">
+          <img class="vue-image" src="img/cycleup.webp" alt="" width="1600" height="1067">
+          <span class="vue-contour" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="gizmo" aria-hidden="true">
+        <span class="g-axe g-x"><b>X</b></span>
+        <span class="g-axe g-y"><b>Y</b></span>
+        <span class="g-axe g-z"><b>Z</b></span>
+      </div>
+      <div class="vue-outils">
+        <button type="button" class="vue-btn" data-vue="face" title="Vue de face (1)"><kbd>1</kbd></button>
+        <button type="button" class="vue-btn" data-vue="cote" title="Vue de côté (3)"><kbd>3</kbd></button>
+        <button type="button" class="vue-btn" data-vue="dessus" title="Vue de dessus (7)"><kbd>7</kbd></button>
+        <button type="button" class="vue-btn" data-vue="reset" title="Recentrer (.)"><kbd>.</kbd></button>
+      </div>
+      <p class="vue-aide" aria-hidden="true">glisser : tourner · molette : zoom</p>
+      <p class="vue-legende" aria-live="polite"></p>
+    </section>
+
+    <!-- Propriétés -->
+    <aside class="panneau ap-props" aria-label="Propriétés du projet">
+      <section class="bloc" id="bloc-projet">
+        <h2 class="bloc-titre">Projet</h2>
+        <h1 class="props-nom">Cycle'Up Pyrénées</h1>
+        <p class="props-accroche">Le site d'un Living Lab des mobilités douces entre la Haute-Bigorre et l'Aragon, avec une rosalie qui avance quand on fait défiler la page.</p>
+        <dl class="champs">
+          <div><dt>Année</dt><dd>2026</dd></div>
+          <div><dt>Cadre</dt><dd>Projet de groupe, BUT MMI</dd></div>
+          <div><dt>Catégorie</dt><dd><span class="puce">Web</span></dd></div>
+          <div><dt>Outils</dt><dd>HTML · CSS · JavaScript · Leaflet</dd></div>
+        </dl>
+      </section>
+      <section class="bloc" id="contexte">
+        <h2 class="bloc-titre">Contexte</h2>
+        <p>Cycle'Up Pyrénées est un projet transfrontalier sur le vélo, la marche et les petits véhicules entre la France et l'Espagne. Le site devait expliquer le projet simplement et donner envie de tester une rosalie.</p>
+        <p>On a choisi d'en faire un trajet&nbsp;: on fait défiler, la rosalie roule et s'arrête à des bornes qui racontent le projet.</p>
+      </section>
+      <section class="bloc" id="role">
+        <h2 class="bloc-titre">Mon rôle</h2>
+        <p class="todo">TODO&nbsp;: ta part dans le groupe (design, intégration, animation de la rosalie, carte…).</p>
+      </section>
+    </aside>
+
+    <!-- Frise des images -->
+    <section class="frise" aria-label="Frise des images du projet">
+      <div class="frise-commandes">
+        <button type="button" class="frise-btn" data-frise="prec" aria-label="Image précédente">⏮</button>
+        <button type="button" class="frise-btn frise-lecture" aria-label="Lire le diaporama" aria-pressed="false"><span class="ico-lecture"></span></button>
+        <button type="button" class="frise-btn" data-frise="suiv" aria-label="Image suivante">⏭</button>
+        <span class="frise-num"><span class="f-actuel">1</span> / <span class="f-total">5</span></span>
+      </div>
+      <div class="frise-piste">
+        <div class="frise-graduations" aria-hidden="true"></div>
+        <ol class="frise-cles"></ol>
+        <span class="frise-tete" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Données des images (le JS remplit l'arborescence, la vue et la frise) -->
+  <template id="images-projet">
+    <figure data-nom="accueil.webp" data-src="img/cycleup.webp" data-w="1600" data-h="1067">Page d'accueil : le logo, la phrase d'accroche et la rosalie sur une route verte.</figure>
+    <figure data-nom="bornes.webp" data-src="img/cycleup-1.webp" data-w="1600" data-h="1000">En faisant défiler, la rosalie avance et s'arrête à des bornes. Chaque borne raconte une partie du projet.</figure>
+    <figure data-nom="rosalie.webp" data-src="img/cycleup-2.webp" data-w="1600" data-h="1000">La page de la rosalie, le véhicule de démonstration du projet. Au clic, elle accélère.</figure>
+    <figure data-nom="le-projet.webp" data-src="img/cycleup-3.webp" data-w="1600" data-h="1000">La page qui présente le projet et ses partenaires.</figure>
+    <figure data-nom="mobile.webp" data-src="img/cycleup-j.webp" data-w="900" data-h="1350">La version mobile de l'accueil.</figure>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="projet.js?v=5" defer></script>
+</body>
+</html>

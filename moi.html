@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moi · Maxime Trolong</title>
+  <meta name="description" content="Maxime Trolong, 20 ans, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23FF5A1F%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22monospace%22 font-size=%2213%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%23121611%22%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="pages.css?v=4">
+</head>
+<body data-page="moi">
+  <a class="evitement" href="#texte">Aller au texte</a>
+
+  <div class="regle regle--h" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <div class="regle regle--v" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <span class="coin" aria-hidden="true"></span>
+  <!-- Logo : pour mettre un PNG détouré, remplacer les deux <span> par <img src="img/logo.png" alt=""> -->
+  <a class="logo" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span>M</span><span>T</span></a>
+  <div class="viseur" aria-hidden="true"><span class="viseur-h"></span><span class="viseur-v"></span><span class="viseur-xy">x 0000 · y 0000</span></div>
+  <div class="selection" aria-hidden="true"><i class="poignee p1"></i><i class="poignee p2"></i><i class="poignee p3"></i><i class="poignee p4"></i><span class="selection-nom"></span></div>
+
+  <nav class="palette" aria-label="Navigation">
+    <a href="index.html" data-touche="h" data-page="accueil"><kbd>H</kbd>Planche</a>
+    <a href="projets.html" data-touche="p" data-page="projets"><kbd>P</kbd>Projets</a>
+    <a href="moi.html" data-touche="m" data-page="moi"><kbd>M</kbd>Moi</a>
+    <a href="contact.html" data-touche="c" data-page="contact"><kbd>C</kbd>Contact</a>
+    <a href="img/cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
+
+  <main id="haut" class="page page--moi">
+    <!-- La photo, avec un vrai réglage d'exposition -->
+    <section class="tirage" aria-label="Portrait">
+      <figure class="tirage-cadre">
+        <img class="tirage-img" src="img/moi.webp?v=3" alt="Portrait de Maxime en gilet zippé gris, sur fond noir" width="1200" height="1799">
+        <figcaption class="tirage-nom">moi.webp <span>1200 × 1799</span></figcaption>
+      </figure>
+      <div class="reglage">
+        <label for="expo">Exposition</label>
+        <input id="expo" type="range" min="-1" max="1.5" step="0.05" value="0">
+        <output for="expo" class="reglage-val">0,00</output>
+      </div>
+    </section>
+
+    <section class="moi-texte" id="texte" aria-labelledby="titre-moi">
+      <p class="chemin">maxime / <b>moi</b></p>
+      <h1 id="titre-moi" class="titre-section titre-page">Moi</h1>
+      <p class="moi-intro">Je m'appelle Maxime, j'ai 20&nbsp;ans. Je suis en 2e année de BUT MMI à l'IUT de Tarbes, parcours Développement de dispositifs interactifs.</p>
+      <p>Je dessine, je fais des affiches, de la 3D sous Blender et des sites. Ce que j'aime le plus, c'est le moment où une image devient quelque chose qu'on peut toucher. Le graphisme des jeux vidéo m'a donné envie de faire ce métier.</p>
+      <p>Je cherche un stage dans un studio, une agence ou une équipe qui fait de la 3D temps réel, du jeu vidéo ou du web interactif.</p>
+
+      <div class="moi-actions">
+        <a class="bouton" href="contact.html"><kbd>C</kbd> Écris-moi</a>
+        <a class="lien-simple" href="img/cv.pdf" target="_blank" rel="noopener">Mon CV (PDF)</a>
+      </div>
+
+      <div class="moi-colonnes">
+        <div>
+          <h2>Parcours</h2>
+          <ul class="liste">
+            <li><span>2025–27</span>BUT MMI, IUT de Tarbes</li>
+            <li><span>2024–25</span>BUT GEII</li>
+            <li><span>2024</span>Bac NSI et sciences de l'ingénieur, Bastia</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Outils</h2>
+          <ul class="pastilles">
+            <li>Photoshop</li><li>InDesign</li><li>Illustrator</li><li>Blender</li><li>Figma</li><li>HTML / CSS</li><li>JavaScript</li><li>PHP / MySQL</li><li>Dessin sur tablette</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <span>© 2026 Maxime Trolong</span>
+    <span>Planche n°3 · portrait</span>
+    <span class="pied-xy">x —, y —</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="app.js?v=12" defer></script>
+  <script src="pages.js?v=5" defer></script>
+</body>
+</html>

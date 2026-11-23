@@ -3,185 +3,154 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maxime Trolong · Graphisme, 3D et web</title>
-  <meta name="description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="Maxime Trolong · Graphisme, 3D et web">
-  <meta property="og:description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
-  <meta property="og:image" content="assets/og.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0C0E16">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Maxime Trolong · planche</title>
+  <meta name="description" content="Maxime Trolong, graphisme, 3D et web. Étudiant en BUT MMI à Tarbes.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23FF5A1F%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22monospace%22 font-size=%2213%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%23121611%22%3EMT%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400..700&family=Space+Mono:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=20261119-calme2">
-  <script src="js/theme.js?v=20261119-calme"></script>
-  <script src="js/main.js?v=20261119-calme" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="pages.css?v=4">
 </head>
 <body data-page="accueil">
-  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+  <a class="evitement" href="#projets">Aller aux projets</a>
 
-  <header class="os-haut">
-    <a class="os-profil" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span class="os-avatar" aria-hidden="true">MT</span><span class="os-nom">Maxime Trolong</span></a>
-    <div class="os-etat">
-      <span class="os-dispo">Disponible pout un stage</span>
-      <span class="os-heure" id="os-heure" aria-hidden="true"></span>
-      <span class="os-reseau" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#reseau"/></svg></span>
-      <span class="os-batterie" id="os-batterie" aria-hidden="true" hidden><span></span></span>
-    </div>
-  </header>
+  <!-- Règles du tapis (bureau seulement) -->
+  <div class="regle regle--h" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <div class="regle regle--v" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <span class="coin" aria-hidden="true"></span>
+  <!-- Logo : pour mettre un PNG détouré, remplacer les deux <span> par <img src="img/logo.png" alt=""> -->
+  <a class="logo" href="#haut" aria-label="Maxime Trolong, retour en haut"><span>M</span><span>T</span></a>
 
-  <main id="contenu" tabindex="-1">
-    <section class="ac-hero">
-      <h1 class="ac-nom"><span class="ac-nom-bleu">Maxime</span> <span class="ac-nom-rouge">Trolong</span></h1>
-      <img class="ac-photo" src="assets/moi.webp?v=2" alt="Portrait de Maxime, le visage éclairé en bleu d'un côté et en rouge de l'autre" width="1000" height="1270" decoding="async" fetchpriority="high">
-      <p class="ac-cote ac-cote--bleu"><span class="ac-cote-titre">Le code</span>Sites web, intégration, JavaScript</p>
-      <p class="ac-cote ac-cote--rouge"><span class="ac-cote-titre">L'image</span>Affiches, 3D, mise en page</p>
-      <div class="ac-hero-bas">
-        <p class="ac-phrase">Moi c'est Maxime. Je fais des affiches, de la 3D et des sites web. 2e année de BUT MMI, IUT de Tarbes.</p>
-        <p class="os-stage"><span class="os-point" aria-hidden="true"></span>Je cherche un stage de TODO durée à partir de TODO date.</p>
-        <a class="ac-descendre" href="#projets">
-          <span>Voir mes projets</span>
-          <svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#bas"/></svg>
+  <!-- Viseur -->
+  <div class="viseur" aria-hidden="true">
+    <span class="viseur-h"></span><span class="viseur-v"></span>
+    <span class="viseur-xy">x 0000 · y 0000</span>
+  </div>
+
+  <!-- Sélection (cadre orange qui suit ce qu'on survole) -->
+  <div class="selection" aria-hidden="true">
+    <i class="poignee p1"></i><i class="poignee p2"></i><i class="poignee p3"></i><i class="poignee p4"></i>
+    <span class="selection-nom"></span>
+  </div>
+
+  <!-- Palette d'outils -->
+  <nav class="palette" aria-label="Navigation">
+    <a href="index.html" data-touche="h" data-page="accueil"><kbd>H</kbd>Planche</a>
+    <a href="projets.html" data-touche="p" data-page="projets"><kbd>P</kbd>Projets</a>
+    <a href="moi.html" data-touche="m" data-page="moi"><kbd>M</kbd>Moi</a>
+    <a href="contact.html" data-touche="c" data-page="contact"><kbd>C</kbd>Contact</a>
+    <a href="img/cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
+
+  <main id="haut">
+    <!-- ============ PLANCHE (accueil) ============ -->
+    <section class="planche">
+      <svg class="angles" viewBox="0 0 600 600" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <line x1="0" y1="600" x2="600" y2="0"/>
+          <line x1="0" y1="600" x2="600" y2="253"/>
+          <line x1="0" y1="600" x2="346" y2="0"/>
+          <path d="M 120 600 A 120 120 0 0 0 0 480" />
+          <path d="M 260 600 A 260 260 0 0 0 0 340" stroke-dasharray="3 6"/>
+        </g>
+        <g fill="currentColor" font-family="JetBrains Mono" font-size="13">
+          <text x="138" y="548">30°</text><text x="104" y="500">45°</text><text x="58" y="470">60°</text>
+        </g>
+      </svg>
+
+      <h1 class="nom" data-sel="h1 · nom">
+        <span class="nom-ligne" aria-hidden="true">Maxime</span>
+        <span class="nom-ligne nom-ligne--2" aria-hidden="true">Trolong</span>
+        <span class="sr">Maxime Trolong</span>
+      </h1>
+
+      <div class="planche-bas">
+        <p class="accroche" data-sel="p · accroche">Je fais des images, et le code qui les fait bouger. Étudiant en 2e année de BUT MMI à Tarbes&nbsp;: graphisme, 3D et web.</p>
+        <a class="etiquette" href="contact.html" data-sel="étiquette · stage">
+          <span class="etiquette-scotch" aria-hidden="true"></span>
+          <span class="etiquette-point" aria-hidden="true"></span>
+          Je cherche un stage
         </a>
       </div>
+
+      <a class="descendre" href="#projets"><span class="souris-ico" aria-hidden="true"></span><span>Défile pour voir mes projets</span></a>
     </section>
 
-    <section class="ac-section" id="projets" aria-labelledby="ac-titre-projets">
-      <div class="ac-section-tete">
-        <h2 class="os-section-titre" id="ac-titre-projets">Quelques projets</h2>
-        <a class="os-bouton" href="projets.html">Tous les projets</a>
+    <!-- ============ PROJETS : le menu ============ -->
+    <section class="projets" id="projets" aria-labelledby="titre-projets">
+      <header class="projets-tete">
+        <div>
+          <h2 id="titre-projets" class="titre-section">Projets</h2>
+          <a class="tous" href="projets.html">Voir tous les projets <kbd>P</kbd></a>
+        </div>
+        <div class="filtres" role="tablist" aria-label="Filtrer">
+          <button role="tab" aria-selected="true" data-filtre="tout"><kbd>1</kbd>Tout</button>
+          <button role="tab" aria-selected="false" data-filtre="web"><kbd>2</kbd>Web</button>
+          <button role="tab" aria-selected="false" data-filtre="affiches"><kbd>3</kbd>Affiches</button>
+          <button role="tab" aria-selected="false" data-filtre="3d"><kbd>4</kbd>3D</button>
+        </div>
+      </header>
+
+      <div class="menu" tabindex="0" aria-label="Menu des projets, flèches gauche et droite pour choisir">
+        <ol class="bande">
+          <li class="carte" data-cat="web" data-titre="Cycle'Up Pyrénées" data-annee="2026" data-cadre="Projet de groupe, BUT MMI" data-outils="HTML · CSS · JavaScript" data-texte="Le site d'un Living Lab des mobilités douces entre la Haute-Bigorre et l'Aragon. On fait défiler, une rosalie roule et s'arrête à des bornes qui racontent le projet." data-lien="projet-cycleup.html">
+            <figure><img src="img/cycleup-j.webp" alt="Page d'accueil du site Cycle'Up Pyrénées" width="900" height="1350"></figure>
+          </li>
+          <li class="carte" data-cat="affiches" data-titre="Carte de vœux 2026" data-annee="2025" data-cadre="Commande, Cité de l'espace" data-outils="Illustration · Risographie" data-texte="Une carte de vœux pour la Cité de l'espace de Toulouse : un module lunaire qui se pose sur l'eau, en bleu canard et orange." data-lien="projet-voeux.html">
+            <figure><img src="img/voeux.webp" alt="Carte de vœux : module lunaire posé sur l'eau, bleu canard et orange" width="818" height="1000"></figure>
+          </li>
+          <li class="carte" data-cat="affiches" data-titre="Venez débattre" data-annee="2025" data-cadre="Affiche, IUT de Tarbes" data-outils="Photoshop · Typo" data-texte="L'affiche d'un débat ouvert sur l'A69 : un grand titre, une foule en fond violet et deux personnages découpés face à face." data-lien="projet-debat.html">
+            <figure><img src="img/debat.webp" alt="Affiche Venez débattre, fond violet, deux personnages face à face" width="707" height="1000"></figure>
+          </li>
+          <li class="carte carte--large" data-cat="affiches" data-titre="Fidélité à une œuvre" data-annee="2025" data-cadre="Double page, Tarbes en Philo" data-outils="InDesign · Photoshop" data-texte="Une double page qui compare le livre et le film Harry Potter : le texte prend la forme d'un vieux grimoire, l'affiche du film occupe l'autre page." data-lien="projet-fidelite.html">
+            <figure><img src="img/fidelite.webp" alt="Double page magazine sur Harry Potter, livre et film" width="1400" height="990"></figure>
+          </li>
+          <li class="carte carte--large" data-cat="web" data-titre="MMICiné" data-annee="2025" data-cadre="Projet d'école" data-outils="PHP · MySQL" data-texte="Un site pour organiser des soirées cinéma : les soirées, les films et les participants au même endroit, plutôt que dix messages de groupe." data-lien="projet-mmicine.html">
+            <figure class="vide"><span>capture à venir</span></figure>
+          </li>
+          <li class="carte" data-cat="3d" data-titre="Projet 3D" data-annee="2026" data-cadre="En cours" data-outils="Blender" data-texte="Une scène 3D sous Blender. Image et texte à venir." data-lien="#">
+            <figure class="vide"><span>rendu à venir</span></figure>
+          </li>
+        </ol>
       </div>
-      <ul class="ac-grille">
-        <li>
-          <a class="ac-carte" href="projets/cycleup-pyrenees.html">
-            <span class="vis vis-couv-zone vis--jaquette couv-2">
-              <span class="vis-couv" aria-hidden="true">Cycle'Up Pyrénées</span>
-              <img src="assets/projets/cycleup-pyrenees/jaquette.jpg" alt="Accueil du site Cycle'Up Pyrénées sur mobile, avec le logo vert et la rosalie" width="1200" height="1800" decoding="async">
-            </span>
-            <span class="ac-carte-texte">
-              <span class="ac-carte-titre">Cycle'Up Pyrénées</span>
-              <span class="ac-carte-meta">Web</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a class="ac-carte" href="projets/affiche-1.html">
-            <span class="vis vis-couv-zone vis--jaquette couv-1">
-              <span class="vis-couv" aria-hidden="true">Carte de vœux Cité de l'espace</span>
-              <img src="assets/projets/affiche-1/jaquette.jpg" alt="Carte de vœux 2026 : un module lunaire bleu posé sur l'eau, des planètes orange et bleue, le logo de la Cité de l'espace" width="1200" height="1800" decoding="async">
-            </span>
-            <span class="ac-carte-texte">
-              <span class="ac-carte-titre">Carte de vœux Cité de l'espace</span>
-              <span class="ac-carte-meta">Affiches · 2026</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a class="ac-carte" href="projets/affiche-2.html">
-            <span class="vis vis-couv-zone vis--jaquette couv-2">
-              <span class="vis-couv" aria-hidden="true">Venez débattre</span>
-              <img src="assets/projets/affiche-2/jaquette.jpg" alt="Affiche « Venez débattre » : titre blanc énorme, foule en violet, deux personnages qui débattent derrière des pupitres" width="1200" height="1800" loading="lazy" decoding="async">
-            </span>
-            <span class="ac-carte-texte">
-              <span class="ac-carte-titre">Venez débattre</span>
-              <span class="ac-carte-meta">Affiches · 2025</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a class="ac-carte" href="projets/affiche-3.html">
-            <span class="vis vis-couv-zone vis--jaquette couv-0">
-              <span class="vis-couv" aria-hidden="true">Fidélité à une œuvre</span>
-              <img src="assets/projets/affiche-3/jaquette.jpg" alt="Page de gauche : titre Fidélité à une œuvre originale sur un fond de vieux papier, texte qui contourne un balai" width="1200" height="1800" loading="lazy" decoding="async">
-            </span>
-            <span class="ac-carte-texte">
-              <span class="ac-carte-titre">Fidélité à une œuvre</span>
-              <span class="ac-carte-meta">Affiches</span>
-            </span>
-          </a>
-        </li>
-      </ul>
+
+      <div class="fiche" aria-live="polite">
+        <p class="fiche-compteur"><span class="c-actuel">01</span><span class="c-sep">/</span><span class="c-total">06</span></p>
+        <h3 class="fiche-titre">Cycle'Up Pyrénées</h3>
+        <p class="fiche-texte"></p>
+        <dl class="fiche-infos">
+          <div><dt>Année</dt><dd class="i-annee"></dd></div>
+          <div><dt>Cadre</dt><dd class="i-cadre"></dd></div>
+          <div><dt>Outils</dt><dd class="i-outils"></dd></div>
+        </dl>
+        <a class="bouton fiche-lien" href="#"><kbd>Entrée</kbd> Ouvrir le projet</a>
+      </div>
+
+      <p class="aides" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> choisir <kbd>Entrée</kbd> ouvrir <kbd>1</kbd>–<kbd>4</kbd> filtrer</p>
     </section>
 
-    <section class="ac-section" id="sur-moi" aria-labelledby="ac-titre-moi">
-      <div class="ac-moi os-verre">
-        <div class="ac-moi-texte">
-          <h2 class="os-section-titre" id="ac-titre-moi">Sur moi</h2>
-          <p class="ac-moi-intro">Je suis Maxime, en 2e année de BUT MMI à l'IUT de Tarbes, parcours Développement de dispositifs interactifs.</p>
-          <p>Je code depuis le lycée et je modélise dans Blender. En cours, j'ai appris la mise en page et l'affiche. Ce que je préfère, c'est quand les deux se croisent : un site qui doit être beau, une affiche qui sort d'une scène 3D. Et le jeu vidéo, c'est surtout son univers graphique qui me passionne.</p>
-          <div class="os-actions">
-            <a class="os-bouton os-bouton--plein" href="contact.html">Me contacter</a>
-            <a class="os-bouton" href="assets/cv.pdf" target="_blank" rel="noopener">Voir mon CV</a>
-            <a class="os-bouton" href="a-propos.html">En savoir plus</a>
-          </div>
-        </div>
-        <div class="ac-moi-infos">
-          <div>
-            <h3 class="ac-mini-titre">Mes outils</h3>
-            <dl class="ac-liste">
-              <div><dt>3D</dt><dd>Blender</dd></div>
-              <div><dt>Web</dt><dd>HTML, CSS, JavaScript, PHP, MySQL</dd></div>
-              <div><dt>Graphisme</dt><dd>Photoshop, InDesign, dessin sur tablette</dd></div>
-              <div><dt>Langues</dt><dd>Français, anglais</dd></div>
-            </dl>
-          </div>
-          <div>
-            <h3 class="ac-mini-titre">Parcours</h3>
-            <dl class="ac-liste">
-              <div><dt>2025 – 2027</dt><dd>BUT MMI, IUT de Tarbes</dd></div>
-              <div><dt>2024 – 2025</dt><dd>BUT GEII</dd></div>
-              <div><dt>2024</dt><dd>Bac général NSI et sciences de l'ingénieur, Bastia</dd></div>
-            </dl>
-          </div>
-        </div>
-      </div>
+
+    <!-- ============ CONTACT (raccourci vers la page) ============ -->
+    <section class="contact contact-bas" aria-label="Contact">
+      <a class="ecris" href="contact.html" data-sel="a · contact.html">
+        <span class="ecris-mot">Écris-moi</span>
+      </a>
+      <p class="contact-ligne">
+        <a href="moi.html">Qui je suis</a>
+        <a href="img/cv.pdf" target="_blank" rel="noopener">Mon CV (PDF)</a>
+      </p>
     </section>
   </main>
 
-  <footer class="os-pied">
-    <div class="osp-int">
-      <div class="osp-haut">
-        <div class="osp-moi">
-          <a class="osp-nom" href="index.html">Maxime Trolong</a>
-          <p>Graphisme, 3D et web. 2e année de BUT MMI, IUT de Tarbes.</p>
-          <p class="osp-dispo"><span class="os-point" aria-hidden="true"></span>Disponible pour un stage</p>
-        </div>
-        <nav class="osp-col" aria-label="Pied de page">
-          <h2 class="osp-titre">Pages</h2>
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="a-propos.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="osp-col">
-          <h2 class="osp-titre">Me joindre</h2>
-          <ul>
-            <li><a href="mailto:TODO-ton-email@exemple.fr">TODO-ton-email@exemple.fr</a></li>
-            <li><a href="assets/cv.pdf" target="_blank" rel="noopener">Mon CV en PDF</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="osp-bas">
-        <p>© 2026 Maxime Trolong</p>
-        <a class="osp-haut-lien" href="#">Revenir en haut</a>
-      </div>
-    </div>
+  <footer class="pied">
+    <span>© 2026 Maxime Trolong</span>
+    <span>Planche n°1 · tapis 60 × 45</span>
+    <span class="pied-xy">x —, y —</span>
   </footer>
 
-  <nav class="os-dock" aria-label="Navigation principale">
-    <a class="os-dock-btn" href="index.html" aria-current="page"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#accueil"/></svg></span><span class="os-dock-nom">Accueil</span></a>
-    <a class="os-dock-btn" href="projets.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#tout"/></svg></span><span class="os-dock-nom">Projets</span></a>
-    <a class="os-dock-btn" href="a-propos.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#apropos"/></svg></span><span class="os-dock-nom">À propos</span></a>
-    <a class="os-dock-btn" href="contact.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#contact"/></svg></span><span class="os-dock-nom">Contact</span></a>
-    <a class="os-dock-btn" href="assets/cv.pdf" target="_blank" rel="noopener"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#cv"/></svg></span><span class="os-dock-nom">Mon CV</span></a>
-    <span class="os-dock-sep" aria-hidden="true"></span>
-    <button class="os-dock-btn" type="button" id="os-theme" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#soleil"/></svg></span><span class="os-dock-nom">Version claire</span></button>
-    <button class="os-dock-btn" type="button" id="os-son" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#muet"/></svg></span><span class="os-dock-nom">Sons coupés</span></button>
-  </nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="app.js?v=12" defer></script>
 </body>
 </html>

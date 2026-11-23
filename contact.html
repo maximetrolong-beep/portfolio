@@ -4,108 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact · Maxime Trolong</title>
-  <meta name="description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="Contact · Maxime Trolong">
-  <meta property="og:description" content="Portfolio de Maxime Trolong, étudiant en BUT MMI à Tarbes : graphisme, 3D et web. Je cherche un stage.">
-  <meta property="og:image" content="assets/og.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0C0E16">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Écrire à Maxime Trolong pour un stage, un projet ou simplement dire bonjour.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23FF5A1F%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22monospace%22 font-size=%2213%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%23121611%22%3EMT%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400..700&family=Space+Mono:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=20261119-calme2">
-  <script src="js/theme.js?v=20261119-calme"></script>
-  <script src="js/main.js?v=20261119-calme" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="pages.css?v=4">
 </head>
 <body data-page="contact">
-  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+  <a class="evitement" href="#message">Aller au formulaire</a>
 
-  <header class="os-haut">
-    <a class="os-profil" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span class="os-avatar" aria-hidden="true">MT</span><span class="os-nom">Maxime Trolong</span></a>
-    <div class="os-etat">
-      <span class="os-dispo">Dispo stage</span>
-      <span class="os-heure" id="os-heure" aria-hidden="true"></span>
-      <span class="os-reseau" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#reseau"/></svg></span>
-      <span class="os-batterie" id="os-batterie" aria-hidden="true" hidden><span></span></span>
-    </div>
-  </header>
+  <div class="regle regle--h" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <div class="regle regle--v" aria-hidden="true"><div class="regle-chiffres"></div><span class="regle-marque"></span></div>
+  <span class="coin" aria-hidden="true"></span>
+  <!-- Logo : pour mettre un PNG détouré, remplacer les deux <span> par <img src="img/logo.png" alt=""> -->
+  <a class="logo" href="index.html" aria-label="Maxime Trolong, retour à l'accueil"><span>M</span><span>T</span></a>
+  <div class="viseur" aria-hidden="true"><span class="viseur-h"></span><span class="viseur-v"></span><span class="viseur-xy">x 0000 · y 0000</span></div>
+  <div class="selection" aria-hidden="true"><i class="poignee p1"></i><i class="poignee p2"></i><i class="poignee p3"></i><i class="poignee p4"></i><span class="selection-nom"></span></div>
 
-  <main id="contenu" tabindex="-1">
-    <section class="page-tete conteneur">
-      <h1 class="titre-affiche">Contact</h1>
-      <p class="page-texte">Pour un stage, une question sur un projet ou mon CV, écrivez-moi ici ou directement par e-mail. Je cherche un stage de TODO durée à partir de TODO date.</p>
-    </section>
+  <nav class="palette" aria-label="Navigation">
+    <a href="index.html" data-touche="h" data-page="accueil"><kbd>H</kbd>Planche</a>
+    <a href="projets.html" data-touche="p" data-page="projets"><kbd>P</kbd>Projets</a>
+    <a href="moi.html" data-touche="m" data-page="moi"><kbd>M</kbd>Moi</a>
+    <a href="contact.html" data-touche="c" data-page="contact"><kbd>C</kbd>Contact</a>
+    <a href="img/cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
 
-    <section class="contact conteneur">
-      <!-- Sans « action », le formulaire ouvre la messagerie du visiteur.
-           Pour recevoir les messages directement : action="https://formspree.io/f/xxxx" method="POST" -->
-      <form class="formulaire" id="formulaire" data-email="TODO-ton-email@exemple.fr">
-        <label for="f-nom">Nom</label>
-        <input id="f-nom" name="nom" type="text" autocomplete="name" required>
-        <label for="f-email">E-mail</label>
-        <input id="f-email" name="email" type="email" autocomplete="email" required>
-        <label for="f-message">Message</label>
-        <textarea id="f-message" name="message" rows="6" required></textarea>
-        <button class="bouton bouton--noir" type="submit">Envoyer</button>
-        <p class="formulaire-etat" id="formulaire-etat" role="status"></p>
-      </form>
-      <aside class="contact-coord" aria-labelledby="titre-coord">
-        <h2 class="titre-bloc" id="titre-coord">En direct</h2>
-        <dl class="liste-def">
-          <div><dt>E-mail</dt><dd><a href="mailto:TODO-ton-email@exemple.fr">TODO-ton-email@exemple.fr</a></dd></div>
-          <div><dt>GitHub</dt><dd>TODO : lien à ajouter</dd></div>
-          <div><dt>LinkedIn</dt><dd>TODO : lien à ajouter</dd></div>
-          <div><dt>ArtStation</dt><dd>TODO : lien à ajouter</dd></div>
-          <div><dt>CV</dt><dd><a href="assets/cv.pdf" target="_blank" rel="noopener">Voir le PDF</a></dd></div>
-        </dl>
-      </aside>
-    </section>
+  <main id="haut" class="page page--contact">
+    <header class="contact-tete">
+      <p class="chemin">maxime / <b>contact</b></p>
+      <h1 class="ecris"><span class="ecris-mot">Écris-moi</span></h1>
+      <p class="contact-intro">Pour un stage, un projet ou juste pour dire bonjour. Je réponds vite.</p>
+    </header>
+
+    <!-- Le formulaire prend la forme d'une fenêtre « Exporter » -->
+    <form class="export" id="message" data-email="TODO-ton-email@exemple.fr" novalidate>
+      <p class="export-barre"><span>Exporter le message</span><span class="export-format">.txt · mailto</span></p>
+      <fieldset class="export-sujet">
+        <legend>Sujet</legend>
+        <label><input type="radio" name="sujet" value="Stage" checked><span>Stage</span></label>
+        <label><input type="radio" name="sujet" value="Projet"><span>Projet</span></label>
+        <label><input type="radio" name="sujet" value="Bonjour"><span>Juste bonjour</span></label>
+      </fieldset>
+      <div class="export-champs">
+        <label class="champ"><span>Nom</span><input name="nom" type="text" autocomplete="name" required></label>
+        <label class="champ"><span>E-mail</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="champ champ--long"><span>Message</span><textarea name="message" rows="6" required></textarea></label>
+      </div>
+      <div class="export-bas">
+        <div class="export-progres" aria-hidden="true"><span class="export-jauge"></span><span class="export-pct">prêt</span></div>
+        <button class="bouton" type="submit"><kbd>Ctrl ↵</kbd> Exporter</button>
+      </div>
+      <p class="export-erreur" role="alert"></p>
+    </form>
+
+    <dl class="contact-infos">
+      <div><dt>E-mail</dt><dd><a href="mailto:TODO-ton-email@exemple.fr">TODO-ton-email@exemple.fr</a></dd></div>
+      <div><dt>CV</dt><dd><a href="img/cv.pdf" target="_blank" rel="noopener">cv.pdf</a></dd></div>
+      <div><dt>Lieu</dt><dd>Tarbes, Hautes-Pyrénées</dd></div>
+      <div><dt>Statut</dt><dd><span class="etiquette-point" aria-hidden="true"></span> Je cherche un stage</dd></div>
+    </dl>
   </main>
 
-  <footer class="os-pied">
-    <div class="osp-int">
-      <div class="osp-haut">
-        <div class="osp-moi">
-          <a class="osp-nom" href="index.html">Maxime Trolong</a>
-          <p>Graphisme, 3D et web. 2e année de BUT MMI, IUT de Tarbes.</p>
-          <p class="osp-dispo"><span class="os-point" aria-hidden="true"></span>Disponible pour un stage</p>
-        </div>
-        <nav class="osp-col" aria-label="Pied de page">
-          <h2 class="osp-titre">Pages</h2>
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="a-propos.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="osp-col">
-          <h2 class="osp-titre">Me joindre</h2>
-          <ul>
-            <li><a href="mailto:TODO-ton-email@exemple.fr">TODO-ton-email@exemple.fr</a></li>
-            <li><a href="assets/cv.pdf" target="_blank" rel="noopener">Mon CV en PDF</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="osp-bas">
-        <p>© 2026 Maxime Trolong</p>
-        <a class="osp-haut-lien" href="#">Revenir en haut</a>
-      </div>
-    </div>
+  <footer class="pied">
+    <span>© 2026 Maxime Trolong</span>
+    <span>Planche n°4 · export</span>
+    <span class="pied-xy">x —, y —</span>
   </footer>
 
-  <nav class="os-dock" aria-label="Navigation principale">
-    <a class="os-dock-btn" href="index.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#accueil"/></svg></span><span class="os-dock-nom">Accueil</span></a>
-    <a class="os-dock-btn" href="projets.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#tout"/></svg></span><span class="os-dock-nom">Projets</span></a>
-    <a class="os-dock-btn" href="a-propos.html"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#apropos"/></svg></span><span class="os-dock-nom">À propos</span></a>
-    <a class="os-dock-btn" href="contact.html" aria-current="page"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#contact"/></svg></span><span class="os-dock-nom">Contact</span></a>
-    <a class="os-dock-btn" href="assets/cv.pdf" target="_blank" rel="noopener"><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#cv"/></svg></span><span class="os-dock-nom">Mon CV</span></a>
-    <span class="os-dock-sep" aria-hidden="true"></span>
-    <button class="os-dock-btn" type="button" id="os-theme" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#soleil"/></svg></span><span class="os-dock-nom">Version claire</span></button>
-    <button class="os-dock-btn" type="button" id="os-son" aria-pressed="false" hidden><span class="os-dock-ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="assets/icones.svg#muet"/></svg></span><span class="os-dock-nom">Sons coupés</span></button>
-  </nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="app.js?v=12" defer></script>
+  <script src="pages.js?v=5" defer></script>
 </body>
 </html>
